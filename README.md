@@ -46,7 +46,6 @@ The solution is elegant and effective:
    Hex: `48 B8 01 00 00 00 00 00 00 00 C3`
 
 2. **Redirect EAT Entries**:
-   - Hook `amsi.dll!AmsiScanBuffer` → `user32.dll!MessageBoxA`
    - Hook `advapi32.dll!EventWrite` → `user32.dll!MessageBoxA`
 
 3. **Calculate RVAs**:
