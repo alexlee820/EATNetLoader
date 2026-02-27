@@ -293,7 +293,6 @@ This tool is for **educational and research purposes only**. Use responsibly and
 
 ## References
 
-- [Resolving System Service Numbers Using the Exception Directory](https://www.mdsec.co.uk/2022/04/resolving-system-service-numbers-using-the-exception-directory/)
-- PE Format Specification - Microsoft
-- Windows Internals, 7th Edition - Pavel Yosifovich
-- Red Team Operations Manual - SpecterOps
+- Inline-ea - https://github.com/EricEsquivel/Inline-EA
+- RustPatchlessCLRLoader - https://github.com/c2pain/RustPatchlessCLRLoader/tree/main
+- eat hook - https://github.com/aurexav/hook-in-rust/tree/master/messagebox-eat-hook
