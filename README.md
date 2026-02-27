@@ -10,7 +10,7 @@ EATNetLoader is a sophisticated .NET assembly loader that utilizes Export Addres
 
 When implementing EAT hooks for Windows libraries, a critical issue arises due to address space layout:
 
-- **Windows library addresses** (e.g., `amsi.dll`, `advapi32.dll`) are loaded at relatively high memory addresses
+- **Windows library addresses** (e.g., `advapi32.dll`) are loaded at relatively high memory addresses
 - **Our dummy/hook functions** are typically located at lower memory addresses
 - EAT uses **Relative Virtual Addresses (RVA)** stored as `DWORD/ULONG` (32-bit unsigned integers)
 
@@ -286,12 +286,19 @@ RVA = 0x7ffe8a501230 - 0x7ffe8a100000 = 0x401230 (positive!)
 
 This project demonstrates advanced techniques for EDR evasion and security research. The trampoline pattern for EAT hooking addresses a fundamental limitation in hooking Windows APIs from lower memory regions.
 
+## TODO / Reminders
+
+1. **Alternative Trampoline DLL/Function**: On some Windows versions, `MessageBoxA` may reside at a lower memory address, causing the same negative RVA issue the trampoline was designed to solve. Need to identify and support an alternative high-address DLL/function as a fallback trampoline target.
+
+2. **Code Re-obfuscation**: Some EDR vendors have begun signaturing the NetLoader pattern. Need to re-obfuscate the loader code using OLLVM (Obfuscator-LLVM) or similar compiler-level obfuscation to break existing signatures and hinder static analysis.
+
 ## Disclaimer
 
 This tool is for **educational and research purposes only**. Use responsibly and only in environments where you have explicit authorization. The authors are not responsible for any misuse of this software.
 
 ## References
 
-- Inline-ea - https://github.com/EricEsquivel/Inline-EA
-- RustPatchlessCLRLoader - https://github.com/c2pain/RustPatchlessCLRLoader/tree/main
-- eat hook - https://github.com/aurexav/hook-in-rust/tree/master/messagebox-eat-hook
+- [Resolving System Service Numbers Using the Exception Directory](https://www.mdsec.co.uk/2022/04/resolving-system-service-numbers-using-the-exception-directory/)
+- PE Format Specification - Microsoft
+- Windows Internals, 7th Edition - Pavel Yosifovich
+- Red Team Operations Manual - SpecterOps
