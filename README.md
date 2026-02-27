@@ -63,7 +63,6 @@ The solution is elegant and effective:
 ## Features
 
 ### 1. EAT Hooking
-- **amsi.dll!AmsiScanBuffer** - Bypass AMSI scanning
 - **advapi32.dll!EventWrite** - Disable ETW (Event Tracing for Windows) logging
 
 ### 2. CLR String Patching
@@ -298,7 +297,6 @@ This tool is for **educational and research purposes only**. Use responsibly and
 
 ## References
 
-- [Resolving System Service Numbers Using the Exception Directory](https://www.mdsec.co.uk/2022/04/resolving-system-service-numbers-using-the-exception-directory/)
-- PE Format Specification - Microsoft
-- Windows Internals, 7th Edition - Pavel Yosifovich
-- Red Team Operations Manual - SpecterOps
+- Inline-ea - https://github.com/EricEsquivel/Inline-EA
+- PatchlessCLRLoader - https://github.com/VoldeSec/PatchlessCLRLoader/tree/main
+- Test_EAT_Hook - https://github.com/forte916/test_eat_hook
